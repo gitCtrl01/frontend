@@ -12,6 +12,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { MenuItem, Radio } from "@mui/material";
+import GenderRadio from "../../common/radio";
+import { DateCalendar, DatePicker } from "@mui/x-date-pickers";
 
 function Copyright(props) {
   return (
@@ -35,7 +38,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function Register() {
+export default function BasicDetails() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -52,36 +55,32 @@ export default function Register() {
         <Box
           sx={{
             marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
           <Box
             component="form"
             noValidate
             onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
+            display="flex"
+            flexDirection="column"
+            gap={4}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+            {/* <Grid item md={8} xs={12}>
+                <Typography variant="h6">Name</Typography>
+              </Grid> */}
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div style={{ display: "flex", gap: "10px" }}>
                 <TextField
-                  autoComplete="given-name"
                   name="firstName"
                   required
                   fullWidth
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  size="large"
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+
                 <TextField
                   required
                   fullWidth
@@ -90,8 +89,11 @@ export default function Register() {
                   name="lastName"
                   autoComplete="family-name"
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </div>
+            </div>
+
+            <Grid container spacing={3}>
+              <Grid item xs={8} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -101,18 +103,7 @@ export default function Register() {
                   autoComplete="email"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -123,7 +114,68 @@ export default function Register() {
                   autoComplete="new-password"
                 />
               </Grid>
-              {/* <Grid item xs={12}>
+            </Grid>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <TextField
+                select
+                style={{ width: "250px", height: "50px" }}
+                label="gender"
+                xs={12}
+                sm={6}
+              >
+                <MenuItem value="male">Male</MenuItem>
+                <MenuItem value="female">Female</MenuItem>
+              </TextField>
+              <DatePicker />
+              {/* <TextField select label="State" style={{ width: "250px" }}>
+                <MenuItem value="male">Maharashtra</MenuItem>
+                <MenuItem value="female">Gujrat</MenuItem>
+              </TextField> */}
+            </div>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                name="Address 1"
+                label="Address 1"
+                type="text"
+                id="Address 1"
+                autoComplete="new-password"
+              />
+            </Grid>
+            <Grid item xs={12} sm={8}>
+              <TextField
+                required
+                fullWidth
+                name="Address 2"
+                label="Address 2"
+                type="text"
+                id="password"
+              />
+            </Grid>
+
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <TextField
+                  name="Pincode"
+                  required
+                  fullWidth
+                  id="pincode"
+                  label="Pincode"
+                  autoFocus
+                  size="large"
+                />
+
+                <TextField
+                  required
+                  fullWidth
+                  id="District"
+                  label="District"
+                  name="District"
+                />
+              </div>
+            </div>
+            {/* <Grid item xs={12}>
                 <FormControlLabel
                   control={
                     <Checkbox value="allowExtraEmails" color="primary" />
@@ -131,7 +183,6 @@ export default function Register() {
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid> */}
-            </Grid>
             <Button
               type="submit"
               fullWidth

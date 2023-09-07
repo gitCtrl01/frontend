@@ -12,6 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Autocomplete } from "@mui/material";
 
 function Copyright(props) {
   return (
@@ -35,7 +36,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function Register() {
+export default function ClgDetails() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -61,7 +62,7 @@ export default function Register() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            College Details
           </Typography>
           <Box
             component="form"
@@ -70,46 +71,37 @@ export default function Register() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  id="clgName"
+                  label="College Name"
+                  name="College Name"
+                  autoComplete="College Name"
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
+                  name="University"
+                  label="University"
+                  type="text"
+                  id="University"
                   autoComplete="new-password"
+                />
+              </Grid> */}
+
+              <Grid item xs={12}>
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  //   options={top100Films}
+                  sx={{ width: 400 }}
+                  renderInput={(params) => (
+                    <TextField {...params} label="University" />
+                  )}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -131,6 +123,27 @@ export default function Register() {
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid> */}
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="Semester"
+                  required
+                  fullWidth
+                  id="Semester"
+                  label="Semester"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="Grade"
+                  label="Grade"
+                  name="Grade"
+                  //   autoComplete="family-name"
+                />
+              </Grid>
             </Grid>
             <Button
               type="submit"
@@ -138,18 +151,18 @@ export default function Register() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              Add
             </Button>
-            <Grid container justifyContent="flex-end">
+            {/* <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
-            </Grid>
+            </Grid> */}
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
   );

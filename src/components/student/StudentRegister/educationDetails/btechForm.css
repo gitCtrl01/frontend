@@ -1,0 +1,23 @@
+.mainDiv {
+  padding: 16px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.divider {
+  color: black;
+}
+.form {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 48px;
+}
+.formElement {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
