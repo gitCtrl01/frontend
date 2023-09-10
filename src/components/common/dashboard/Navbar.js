@@ -34,6 +34,24 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
+const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    padding: 10,
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: `-${drawerWidth}px`,
+    ...(open && {
+      transition: theme.transitions.create("margin", {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginLeft: 0,
+    }),
+  })
+);
 export default function StudentAppbar({ children }) {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -152,7 +170,7 @@ export default function StudentAppbar({ children }) {
           ))}
         </List>
       </Drawer>
-      {children}
+      <Main>{children}</Main>
     </Box>
   );
 }

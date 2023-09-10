@@ -43,7 +43,7 @@ export default function LogIn() {
       email: data.get("email"),
       password: data.get("password"),
     });
-  };
+  }; 
 
   return (
     <ThemeProvider theme={defaultTheme}>

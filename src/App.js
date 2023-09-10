@@ -1,15 +1,19 @@
 import "./App.css";
 import { Route, Router, Routes } from "react-router-dom";
-import Login from "./pages/login";
 import Register from "./pages/signup";
 import ClgDetails from "./components/student/StudentRegister/clgDetails";
 import StudentDashboard from "./pages/studentDashboard";
-import PersistentDrawerLeft from "./components/student/dashboard/drawer";
-import LogIn from "./pages/login";
+import PersistentDrawerLeft from "./components/common/dashboard/drawer";
 import BasicDetails from "./components/student/StudentRegister/baiscDetails";
 import BtechDetails from "./components/student/StudentRegister/educationDetails/btechForm";
 import MtechDetails from "./components/student/StudentRegister/educationDetails/mtech";
-import ProjectDetails from "./components/student/projectForm/projectForm";
+import CollegeDetails from "./components/college/collegeForm";
+import ProfessorDetails from "./components/Professor/Professors";
+import ProfEducationForm from "./pages/professors/profEducation";
+import ProjectForm from "./components/student/projectForm/projectForm";
+import UniDashboard from "./pages/university/universityDashboard";
+import LogIn from "./pages/auth/login";
+import StudentRegister from "./pages/auth/registration/sutdentRegister";
 
 function App() {
   return (
@@ -28,28 +32,28 @@ function App() {
           Learn React
         </a>
       </header> */}
-      {/* <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes> */}
 
       {/* <Route path="/clgDetails" element={<ClgDetails/>}/> */}
-      {/* <StudentDashboard>
-        <Routes>
-          <Route path="/hellow"  />
-        </Routes>
-      </StudentDashboard> */}
+
       <StudentDashboard>
         <Routes>
           <Route path="/auth">
-            <Route path="login" element={<Login />} />
+            <Route path="login" element={<LogIn />} />
             <Route path="register" element={<Register />} />
+            <Route path="studentRegister" element={<StudentRegister />} />
+            <Route path="prof" element={<ProfessorDetails />} />
+            <Route path="principal" element={<CollegeDetails />} />
           </Route>
           <Route path="/basic" element={<BasicDetails />} />
-          <Route path="/clg" element={<ProjectDetails />} />
-          <Route path="/studnet/dashboard">
+          <Route path="/clg" element={<ProfessorDetails />} />
+          <Route path="/student">
             <Route path="projects" element={<h1>hellow</h1>} />
           </Route>
+          <Route path="/professor">
+            <Route path="education" element={<ProfEducationForm />} />
+            <Route path="papers" element={<ProjectForm />} />
+          </Route>
+          <Route path="/university" element={<UniDashboard />}></Route>
         </Routes>
       </StudentDashboard>
     </div>

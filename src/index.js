@@ -6,15 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import AppProvider from "./context/context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </LocalizationProvider>
+    <AppProvider>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </LocalizationProvider>
+    </AppProvider>
   </BrowserRouter>
 );
 

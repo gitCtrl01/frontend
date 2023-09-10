@@ -3,7 +3,7 @@ import "./btechForm.css";
 import { DatePicker } from "@mui/x-date-pickers";
 import { TextareaAutosize } from "@mui/material";
 
-export default function BtechDetails() {
+export default function ProjectForm() {
   return (
     <div className="mainDiv">
       <Typography
@@ -33,7 +33,6 @@ export default function BtechDetails() {
           </div>
         </div>
 
-        
         <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
             <Typography variant="h5">Year of Publication</Typography>
@@ -45,7 +44,7 @@ export default function BtechDetails() {
               type="text"
               fullWidth
               name="University"
-             
+
               //   style={{ width: "500px" }}
             />
           </div>

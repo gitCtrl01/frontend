@@ -1,7 +1,11 @@
 import { Box, TextField, Typography } from "@mui/material";
 import "./btechForm.css";
 import { DatePicker } from "@mui/x-date-pickers";
+import { AppContext } from "../../../../context/context";
+import { useContext } from "react";
 export default function MtechDetails() {
+  const { mtech } = useContext(AppContext);
+  const { setmtech } = useContext(AppContext);
   return (
     <div className="mainDiv">
       <Typography
@@ -21,8 +25,12 @@ export default function MtechDetails() {
             <TextField
               type="text"
               fullWidth
-              name="University"
+              name="college"
               label="College"
+              value={mtech.college}
+              onChange={(e) => {
+                setmtech({ ...mtech, college: e.target.value });
+              }}
             />
           </div>
           <div className="fromElement">
@@ -33,6 +41,10 @@ export default function MtechDetails() {
               name="University"
               label="University"
               style={{ width: "500px" }}
+              value={mtech.University}
+              onChange={(e) => {
+                setmtech({ ...mtech, university: e.target.value });
+              }}
             />
           </div>
         </div>
@@ -43,33 +55,54 @@ export default function MtechDetails() {
             <TextField
               type="text"
               fullWidth
-              name="University"
+              name="Address"
               label="Line 1"
               style={{ width: "500px" }}
+              value={mtech.collegeAddress1}
+              onChange={(e) => {
+                setmtech({ ...mtech, collegeAddress1: e.target.value });
+              }}
             />
 
             <TextField
               type="text"
               fullWidth
-              name="University"
+              name="Address 2"
               label="Line 2"
               style={{ width: "500px" }}
+              value={mtech.collegeAddress2}
+              onChange={(e) => {
+                setmtech({ ...mtech, collegeAddress2: e.target.value });
+              }}
             />
           </div>
         </div>
         <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
             <Typography variant="h5">State</Typography>
-            <TextField type="text" fullWidth name="University" label="State" />
+            <TextField
+              type="text"
+              fullWidth
+              name="University"
+              label="State"
+              value={mtech.state}
+              onChange={(e) => {
+                setmtech({ ...mtech, state: e.target.value });
+              }}
+            />
           </div>
           <div className="fromElement">
             <Typography variant="h5">Pincode</Typography>
             <TextField
               type="text"
               fullWidth
-              name="University"
+              name="Pincode"
               label="Pincode"
               //   style={{ width: "500px" }}
+              value={mtech.pincode}
+              onChange={(e) => {
+                setmtech({ ...mtech, pincode: e.target.value });
+              }}
             />
           </div>
           <div className="fromElement">
@@ -77,8 +110,12 @@ export default function MtechDetails() {
             <TextField
               type="text"
               fullWidth
-              name="University"
+              name="District"
               label="District"
+              value={mtech.district}
+              onChange={(e) => {
+                setmtech({ ...mtech, district: e.target.value });
+              }}
               //   style={{ width: "500px" }}
             />
           </div>
@@ -87,10 +124,10 @@ export default function MtechDetails() {
         <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
             <Typography variant="h5">Joining Date</Typography>
-            <DatePicker />
+            <DatePicker    onChange={(e) => setmtech({ ...mtech, passingDate: e })}/>
           </div>
           <div className="fromElement">
-            <Typography variant="h5">CGPA 1</Typography>
+            <Typography variant="h5">Programme</Typography>
             <TextField
               type="text"
               fullWidth
@@ -100,7 +137,7 @@ export default function MtechDetails() {
             />
           </div>
           <div className="fromElement">
-            <Typography variant="h5">CGPA 2</Typography>
+            <Typography variant="h5">Current Sem</Typography>
             <TextField
               type="text"
               fullWidth

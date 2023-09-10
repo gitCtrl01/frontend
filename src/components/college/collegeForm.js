@@ -1,51 +1,80 @@
-import { Box, TextField, Typography } from "@mui/material";
-import "./btechForm.css";
+import { Box, MenuItem, Select, TextField, Typography } from "@mui/material";
+import "./collegeForm.css";
 import { DatePicker } from "@mui/x-date-pickers";
-import { useContext } from "react";
-import { AppContext } from "../../../../context/context";
-export default function BtechDetails() {
-  const { btech } = useContext(AppContext);
-  const { setbtech } = useContext(AppContext);
+
+export default function CollegeDetails() {
   return (
     <div className="mainDiv">
       <Typography
         variant="h3"
         fontFamily="Inria Serif"
         color="#092F7A"
-        style={{ borderBottom: "2px solid black" }}
+        style={{ borderBottom: "2px solid" }}
       >
-        B.Tech Details :
+        Principal Details :
       </Typography>
       <br />
       <Box component="form" className="form">
         <br />
         <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
-            <Typography variant="h5">College</Typography>
-            <TextField
-              type="text"
-              fullWidth
-              name="college"
-              label="College"
-              value={btech.college}
-              onChange={(e) => {
-                setbtech({ ...btech, college: e.target.value });
-              }}
-            />
-          </div>
-          <div className="fromElement">
-            <Typography variant="h5">University</Typography>
+            <Typography variant="h5">First Name</Typography>
             <TextField
               type="text"
               fullWidth
               name="University"
-              label="University"
-              style={{ width: "500px" }}
-              value={btech.University}
-              onChange={(e) => {
-                setbtech({ ...btech, university: e.target.value });
-              }}
+              label="First Name"
             />
+          </div>
+          <div className="fromElement">
+            <Typography variant="h5">Last Name</Typography>
+            <TextField
+              type="text"
+              fullWidth
+              name="University"
+              label="Last Name"
+              // style={{ width: "500px" }}
+            />
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: "72px" }}>
+          <div className="fromElement">
+            <Typography variant="h5">Mobile Number</Typography>
+            <TextField
+              type="text"
+              fullWidth
+              name="University"
+              label="mobile number"
+            />
+          </div>
+          <div className="fromElement">
+            <Typography variant="h5">Email Id</Typography>
+            <TextField
+              type="email"
+              fullWidth
+              name="University"
+              label="Email Id"
+              // style={{ width: "500px" }}
+            />
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: "72px" }}>
+          <div className="fromElement">
+            <Typography variant="h5">College Name</Typography>
+            <TextField
+              type="text"
+              fullWidth
+              name="University"
+              label="mobile number"
+            />
+          </div>
+          <div className="fromElement">
+            <Typography variant="h5">College Type</Typography>
+            <Select fullWidth>
+              <MenuItem value="Goverment">Government</MenuItem>
+              <MenuItem value="Private">Private</MenuItem>
+              <MenuItem value="Autonomus">Autonomus</MenuItem>
+            </Select>
           </div>
         </div>
 
@@ -55,54 +84,33 @@ export default function BtechDetails() {
             <TextField
               type="text"
               fullWidth
-              name="Address 1"
+              name="University"
               label="Line 1"
               style={{ width: "500px" }}
-              value={btech.collegeAddress1}
-              onChange={(e) => {
-                setbtech({ ...btech, collegeAddress1: e.target.value });
-              }}
             />
 
             <TextField
               type="text"
               fullWidth
-              name="Address 2"
-              label="Line 2"
+              name="University"
+              label="line 2"
               style={{ width: "500px" }}
-              value={btech.collegeAddress2}
-              onChange={(e) => {
-                setbtech({ ...btech, collegeAddress2: e.target.value });
-              }}
             />
           </div>
         </div>
         <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
             <Typography variant="h5">State</Typography>
-            <TextField
-              type="text"
-              fullWidth
-              name="University"
-              label="State"
-              value={btech.state}
-              onChange={(e) => {
-                setbtech({ ...btech, state: e.target.value });
-              }}
-            />
+            <TextField type="text" fullWidth name="University" label="State" />
           </div>
           <div className="fromElement">
             <Typography variant="h5">Pincode</Typography>
             <TextField
               type="text"
               fullWidth
-              name="State"
+              name="University"
               label="Pincode"
               //   style={{ width: "500px" }}
-              value={btech.pincode}
-              onChange={(e) => {
-                setbtech({ ...btech, pincode: e.target.value });
-              }}
             />
           </div>
           <div className="fromElement">
@@ -110,23 +118,17 @@ export default function BtechDetails() {
             <TextField
               type="text"
               fullWidth
-              name="District"
+              name="University"
               label="District"
               //   style={{ width: "500px" }}
-              value={btech.district}
-              onChange={(e) => {
-                setbtech({ ...btech, district: e.target.value });
-              }}
             />
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: "72px" }}>
+        {/* <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
             <Typography variant="h5">Passing Date</Typography>
-            <DatePicker
-              onChange={(e) => setbtech({ ...btech, passingDate: e })}
-            />
+            <DatePicker />
           </div>
           <div className="fromElement">
             <Typography variant="h5">Department</Typography>
@@ -135,10 +137,6 @@ export default function BtechDetails() {
               fullWidth
               name="University"
               label="Department"
-              value={btech.department}
-              onChange={(e) => {
-                setbtech({ ...btech, department: e.target.value });
-              }}
               //   style={{ width: "500px" }}
             />
           </div>
@@ -149,14 +147,10 @@ export default function BtechDetails() {
               fullWidth
               name="University"
               label="CGPA"
-              value={btech.CGPA}
-              onChange={(e) => {
-                setbtech({ ...btech, CGPA: e.target.value });
-              }}
               //   style={{ width: "500px" }}
             />
           </div>
-        </div>
+        </div> */}
       </Box>
     </div>
   );

@@ -1,12 +1,9 @@
 .masterDiv {
   display: flex;
-  margin: auto;
   flex-direction: column;
   gap: 25px;
 }
-.formDiv{
-    display: flex;
-    flex-direction: column;
-    
-
+.formDiv {
+  display: flex;
+  flex-direction: column;
 }
