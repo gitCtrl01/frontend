@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Loginapi } from "../../api/auht/loginapi";
 import { SetItem } from "../../util/localstorage";
+import { MenuItem, Select } from "@mui/material";
 
 function Copyright(props) {
   return (
@@ -123,10 +124,22 @@ export default function LogIn() {
                 }}
                 autoComplete="current-password"
               />
-              <FormControlLabel
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                // value={age}
+                label="Select role"
+                fullWidth
+                // onChange={handleChange}
+              >
+                <MenuItem value="student">Student</MenuItem>
+                <MenuItem value="professor">clgAdmin/professor</MenuItem>
+                <MenuItem value="uniAdmin">University Admin</MenuItem>
+              </Select>
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
+              /> */}
               <Button
                 type="submit"
                 fullWidth
