@@ -15,7 +15,7 @@ import { AppContext } from "../../../context/context";
 
 export default function StudentRegister() {
   const [activeStep, setActiveStep] = React.useState(0);
-   const z= React.useContext(AppContext)
+  const z = React.useContext(AppContext);
   const steps2 = [
     { label: "Basic Details", element: <BasicDetails /> },
     {
@@ -30,7 +30,7 @@ export default function StudentRegister() {
     { label: "Project", element: <ProjectForm /> },
   ];
   const handleNext = () => {
-    console.log(z)
+    console.log(z);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -40,6 +40,9 @@ export default function StudentRegister() {
 
   const handleSkip = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+  const handleSubmit = () => {
+    
   };
 
   const handleReset = () => {
@@ -93,7 +96,11 @@ export default function StudentRegister() {
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleNext}>
+              <Button
+                onClick={
+                  activeStep === steps2.length - 1 ? handleSubmit : handleNext
+                }
+              >
                 {activeStep === steps2.length - 1 ? "Finish" : "Next"}
               </Button>
             </div>

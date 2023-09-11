@@ -12,6 +12,8 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Loginapi } from "../../api/auht/loginapi";
+import { SetItem } from "../../util/localstorage";
 
 function Copyright(props) {
   return (
@@ -36,14 +38,19 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function LogIn() {
-  const handleSubmit = (event) => {
+  const [data, setData] = React.useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  }; 
+    const res = await Loginapi(data);
+    if (res.status === 200) {
+      SetItem({ key: "token", value: res.data.token });
+      SetItem({ key: "role", value: res.data.role });
+    }
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -96,6 +103,10 @@ export default function LogIn() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value={data.email}
+                onChange={(e) => {
+                  setData({ ...data, email: e.target.value });
+                }}
                 autoFocus
               />
               <TextField
@@ -106,6 +117,10 @@ export default function LogIn() {
                 label="Password"
                 type="password"
                 id="password"
+                value={data.password}
+                onChange={(e) => {
+                  setData({ ...data, password: e.target.value });
+                }}
                 autoComplete="current-password"
               />
               <FormControlLabel
