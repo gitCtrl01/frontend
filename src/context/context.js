@@ -12,8 +12,10 @@ export default function AppProvider({ children }) {
     dob: "",
     addressL1: "",
     addressL2: "",
-    pincode: "",
+    pinCode: "",
     district: "",
+    password: "",
+    roles: ["64f77575d6028319c8086184"],
   });
   const [btech, setbtech] = useState({
     college: "",
@@ -24,7 +26,7 @@ export default function AppProvider({ children }) {
     pincode: "",
     district: "",
     passingDate: "",
-    department: "",
+    programme: "",
     CGPA: "",
   });
   const [mtech, setmtech] = useState({
@@ -36,9 +38,16 @@ export default function AppProvider({ children }) {
     pincode: "",
     district: "",
     passingDate: "",
-    department: "",
+    programme: "",
     currentSem: "",
-    CGPA: "",
+    CGPA1: "",
+    CGPA2: "",
+  });
+  const [projectDetails, setProjectDetails] = useState({
+    department: "",
+    topic: "",
+    yearofPublication: "",
+    description: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -51,6 +60,8 @@ export default function AppProvider({ children }) {
         setbtech,
         mtech,
         setmtech,
+        projectDetails,
+        setProjectDetails,
       }}
     >
       {children}

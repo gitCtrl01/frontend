@@ -210,6 +210,22 @@ export default function BasicDetails() {
                     });
                   }}
                 />
+                <TextField
+                  name="password"
+                  required
+                  fullWidth
+                  id="pincode"
+                  label="Password"
+                  autoFocus
+                  size="large"
+                  value={BasicFormDetails.password}
+                  onChange={(e) => {
+                    setBasicFormsDetails({
+                      ...BasicFormDetails,
+                      password: e.target.value,
+                    });
+                  }}
+                />
               </div>
             </div>
             {/* <Grid item xs={12}>

@@ -14,7 +14,7 @@ export default function MtechDetails() {
         color="#092F7A"
         style={{ borderBottom: "2px solid" }}
       >
-        M.Tech Details :
+        Master's Details :
       </Typography>
       <br />
       <Box component="form" className="form">
@@ -124,7 +124,9 @@ export default function MtechDetails() {
         <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
             <Typography variant="h5">Joining Date</Typography>
-            <DatePicker    onChange={(e) => setmtech({ ...mtech, passingDate: e })}/>
+            <DatePicker
+              onChange={(e) => setmtech({ ...mtech, passingDate: e })}
+            />
           </div>
           <div className="fromElement">
             <Typography variant="h5">Programme</Typography>
@@ -133,6 +135,10 @@ export default function MtechDetails() {
               fullWidth
               name="University"
               label="Semester 1"
+              value={mtech.programme}
+              onChange={(e) => {
+                setmtech({ ...mtech, programme: e.target.value });
+              }}
               //   style={{ width: "500px" }}
             />
           </div>
@@ -143,6 +149,10 @@ export default function MtechDetails() {
               fullWidth
               name="University"
               label="Semester 2"
+              value={mtech.currentSem}
+              onChange={(e) => {
+                setmtech({ ...mtech, currentSem: e.target.value });
+              }}
               //   style={{ width: "500px" }}
             />
           </div>
@@ -156,6 +166,10 @@ export default function MtechDetails() {
               name="University"
               label="Semester 1"
               //   style={{ width: "500px" }}
+              value={mtech.CGPA1}
+              onChange={(e) => {
+                setmtech({ ...mtech, CGPA1: e.target.value });
+              }}
             />
           </div>
           <div className="fromElement">
@@ -165,6 +179,10 @@ export default function MtechDetails() {
               fullWidth
               name="University"
               label="Semester 2"
+              value={mtech.CGPA2}
+              onChange={(e) => {
+                setmtech({ ...mtech, CGPA2: e.target.value });
+              }}
               //   style={{ width: "500px" }}
             />
           </div>

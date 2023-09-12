@@ -12,7 +12,7 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Loginapi } from "../../api/auht/loginapi";
+import { Loginapi, Proflogin } from "../../api/auht/loginapi";
 import { SetItem } from "../../util/localstorage";
 import { MenuItem, Select } from "@mui/material";
 
@@ -43,13 +43,25 @@ export default function LogIn() {
     email: "",
     password: "",
   });
-
+  const [loginType, setLoginType] = React.useState("");
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await Loginapi(data);
-    if (res.status === 200) {
-      SetItem({ key: "token", value: res.data.token });
-      SetItem({ key: "role", value: res.data.role });
+    if (loginType === "student") {
+      const res = await Loginapi(data);
+      if (res.status === 200) {
+        SetItem({ key: "token", value: res.data.token });
+        SetItem({ key: "role", value: res.data.role });
+      }
+    } else {
+      if (loginType === "professor") {
+        const res = await Proflogin(data);
+        if (res.status === 200) {
+          SetItem({ key: "token", value: res.data.token });
+          SetItem({ key: "role", value: res.data.role });
+        } else {
+          console.log("wait");
+        }
+      }
     }
   };
 
@@ -127,10 +139,12 @@ export default function LogIn() {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                // value={age}
+                value={loginType}
                 label="Select role"
                 fullWidth
-                // onChange={handleChange}
+                onChange={(e) => {
+                  setLoginType(e.target.value);
+                }}
               >
                 <MenuItem value="student">Student</MenuItem>
                 <MenuItem value="professor">clgAdmin/professor</MenuItem>

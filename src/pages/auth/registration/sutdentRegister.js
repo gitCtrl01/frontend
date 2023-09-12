@@ -12,6 +12,7 @@ import BtechDetails from "../../../components/student/StudentRegister/educationD
 import MtechDetails from "../../../components/student/StudentRegister/educationDetails/mtech";
 import ProjectForm from "../../../components/student/projectForm/projectForm";
 import { AppContext } from "../../../context/context";
+import StudentRetisterApi from "../../../api/auht/studentRegister";
 
 export default function StudentRegister() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -41,8 +42,11 @@ export default function StudentRegister() {
   const handleSkip = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
-  const handleSubmit = () => {
-    
+  const handleSubmit = async () => {
+    const body = { ...z.BasicFormDetails, btech: z.btech, mtech: z.mtech };
+    console.log(body.lastName);
+    const res = await StudentRetisterApi(body);
+    console.log(res);
   };
 
   const handleReset = () => {

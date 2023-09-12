@@ -14,7 +14,7 @@ export default function BtechDetails() {
         color="#092F7A"
         style={{ borderBottom: "2px solid black" }}
       >
-        B.Tech Details :
+        Bachloers Details :
       </Typography>
       <br />
       <Box component="form" className="form">
@@ -129,15 +129,15 @@ export default function BtechDetails() {
             />
           </div>
           <div className="fromElement">
-            <Typography variant="h5">Department</Typography>
+            <Typography variant="h5">Programme</Typography>
             <TextField
               type="text"
               fullWidth
               name="University"
               label="Department"
-              value={btech.department}
+              value={btech.programme}
               onChange={(e) => {
-                setbtech({ ...btech, department: e.target.value });
+                setbtech({ ...btech, programme: e.target.value });
               }}
               //   style={{ width: "500px" }}
             />
