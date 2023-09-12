@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Loginapi, Proflogin } from "../../api/auht/loginapi";
 import { SetItem } from "../../util/localstorage";
 import { MenuItem, Select } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -39,6 +40,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function LogIn() {
+  const navigate = useNavigate();
   const [data, setData] = React.useState({
     email: "",
     password: "",
@@ -51,6 +53,7 @@ export default function LogIn() {
       if (res.status === 200) {
         SetItem({ key: "token", value: res.data.token });
         SetItem({ key: "role", value: res.data.role });
+        navigate("/student");
       }
     } else {
       if (loginType === "professor") {
@@ -58,6 +61,7 @@ export default function LogIn() {
         if (res.status === 200) {
           SetItem({ key: "token", value: res.data.token });
           SetItem({ key: "role", value: res.data.role });
+          navigate("/student");
         } else {
           console.log("wait");
         }

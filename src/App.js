@@ -44,8 +44,8 @@ function App() {
             <Route path="prof" element={<ProfessorDetails />} />
             <Route path="principal" element={<CollegeDetails />} />
           </Route>
-          <Route path="/basic" element={<BasicDetails />} />
-          <Route path="/clg" element={<ProfessorDetails />} />
+          {/* <Route path="/basic" element={<BasicDetails />} />
+          <Route path="/clg" element={<ProfessorDetails />} /> */}
           <Route path="/student">
             <Route path="projects" element={<h1>hellow</h1>} />
           </Route>

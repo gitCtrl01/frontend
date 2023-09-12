@@ -31,7 +31,6 @@ export default function StudentRegister() {
     { label: "Project", element: <ProjectForm /> },
   ];
   const handleNext = () => {
-    console.log(z);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -43,9 +42,9 @@ export default function StudentRegister() {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
   const handleSubmit = async () => {
-    const body = { ...z.BasicFormDetails, btech: z.btech, mtech: z.mtech };
+    const body = { ...z.BasicFormDetails, bachloers: z.btech, masters: z.mtech };
     console.log(body.lastName);
-    const res = await StudentRetisterApi(body);
+    const res =  StudentRetisterApi(body);
     console.log(res);
   };
 

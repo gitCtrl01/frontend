@@ -7,4 +7,6 @@ export async function Loginapi(body) {
 
 export async function Proflogin(body) {
   const req = await Instance.post("/auth/proflogin", { ...body });
+  return req
 }
+
