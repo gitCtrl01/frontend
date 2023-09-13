@@ -162,7 +162,7 @@ export default function StudentAppbar({ children }) {
                 <ListItemText
                   primary={text}
                   onClick={() =>
-                    navigate(`/student/dashboard/${text.toLocaleLowerCase()}`)
+                    navigate(`/student/${text.toLocaleLowerCase()}`)
                   }
                 />
               </ListItemButton>

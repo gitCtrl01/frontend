@@ -14,6 +14,8 @@ import ProjectForm from "./components/student/projectForm/projectForm";
 import UniDashboard from "./pages/university/universityDashboard";
 import LogIn from "./pages/auth/login";
 import StudentRegister from "./pages/auth/registration/sutdentRegister";
+import StudentProjects from "./pages/student/studentProjects";
+import ApplicationTable from "./pages/professors/application";
 
 function App() {
   return (
@@ -47,11 +49,12 @@ function App() {
           {/* <Route path="/basic" element={<BasicDetails />} />
           <Route path="/clg" element={<ProfessorDetails />} /> */}
           <Route path="/student">
-            <Route path="projects" element={<h1>hellow</h1>} />
+            <Route path="projects" element={<StudentProjects />} />
           </Route>
           <Route path="/professor">
             <Route path="education" element={<ProfEducationForm />} />
             <Route path="papers" element={<ProjectForm />} />
+            <Route path="application" element={<ApplicationTable />} />
           </Route>
           <Route path="/university" element={<UniDashboard />}></Route>
         </Routes>

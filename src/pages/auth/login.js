@@ -56,12 +56,12 @@ export default function LogIn() {
         navigate("/student");
       }
     } else {
-      if (loginType === "professor") {
+      if (loginType === "professor" || loginType === "clgAdmin") {
         const res = await Proflogin(data);
         if (res.status === 200) {
           SetItem({ key: "token", value: res.data.token });
           SetItem({ key: "role", value: res.data.role });
-          navigate("/student");
+          navigate("/professor");
         } else {
           console.log("wait");
         }

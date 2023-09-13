@@ -158,7 +158,7 @@ export default function ProfessorDashboard({ children }) {
             {
               label: "Application",
               icon: <PersonAdd />,
-              link: "/professor/education",
+              link: "/professor/application",
             },
             { label: "Comittee", icon: <Group />, link: "/professor/Papers" },
             {
