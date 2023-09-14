@@ -28,7 +28,7 @@ export default function StudentRegister() {
         </>
       ),
     },
-    { label: "Project", element: <ProjectForm /> },
+    // { label: "Project", element: <ProjectForm /> },
   ];
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);

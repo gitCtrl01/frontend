@@ -1,13 +1,17 @@
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import "./btechForm.css";
 import { DatePicker } from "@mui/x-date-pickers";
 import { TextareaAutosize } from "@mui/material";
 import { useContext } from "react";
 import { AppContext } from "../../../context/context";
+import { ApplyProject } from "../../../api/projects/projects";
 
 export default function ProjectForm() {
   const { projectDetails } = useContext(AppContext);
   const { setProjectDetails } = useContext(AppContext);
+  const handleSubmit = async () => {
+    const res = await ApplyProject(projectDetails);
+  };
   return (
     <div className="mainDiv">
       <Typography
@@ -19,7 +23,10 @@ export default function ProjectForm() {
         Project Details :
       </Typography>
       <br />
-      <Box component="form" className="form">
+      <Box component="form" className="form" onSubmit={(e)=>{
+        e.preventDefault()
+        handleSubmit()
+      }}>
         <br />
         <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
@@ -54,7 +61,39 @@ export default function ProjectForm() {
             />
           </div>
         </div>
-
+        <div style={{ display: "flex", gap: "72px" }}>
+          <div className="fromElement">
+            <Typography variant="h5">Domain</Typography>
+            <TextField
+              type="text"
+              fullWidth
+              name="Department"
+              value={projectDetails.domain}
+              onChange={(e) => {
+                setProjectDetails({
+                  ...projectDetails,
+                  domain: e.target.value,
+                });
+              }}
+            />
+          </div>
+          <div className="fromElement">
+            <Typography variant="h5">Guide</Typography>
+            <TextField
+              type="text"
+              fullWidth
+              name="University"
+              style={{ width: "500px" }}
+              value={projectDetails.askedProf}
+              onChange={(e) => {
+                setProjectDetails({
+                  ...projectDetails,
+                  askedProf: e.target.value,
+                });
+              }}
+            />
+          </div>
+        </div>
         <div style={{ display: "flex", gap: "72px" }}>
           <div className="fromElement">
             <Typography variant="h5">Year of Publication</Typography>
@@ -79,7 +118,9 @@ export default function ProjectForm() {
             //   style={{ width: "500px" }}
           />
         </div>
+        <Button type="submit">Apply</Button>
       </Box>
+    
     </div>
   );
 }

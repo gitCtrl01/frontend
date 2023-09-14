@@ -1,12 +1,7 @@
 import "./App.css";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Register from "./pages/signup";
-import ClgDetails from "./components/student/StudentRegister/clgDetails";
 import StudentDashboard from "./pages/studentDashboard";
-import PersistentDrawerLeft from "./components/common/dashboard/drawer";
-import BasicDetails from "./components/student/StudentRegister/baiscDetails";
-import BtechDetails from "./components/student/StudentRegister/educationDetails/btechForm";
-import MtechDetails from "./components/student/StudentRegister/educationDetails/mtech";
 import CollegeDetails from "./components/college/collegeForm";
 import ProfessorDetails from "./components/Professor/Professors";
 import ProfEducationForm from "./pages/professors/profEducation";
@@ -14,7 +9,6 @@ import ProjectForm from "./components/student/projectForm/projectForm";
 import UniDashboard from "./pages/university/universityDashboard";
 import LogIn from "./pages/auth/login";
 import StudentRegister from "./pages/auth/registration/sutdentRegister";
-import StudentProjects from "./pages/student/studentProjects";
 import ApplicationTable from "./pages/professors/application";
 
 function App() {
@@ -49,7 +43,7 @@ function App() {
           {/* <Route path="/basic" element={<BasicDetails />} />
           <Route path="/clg" element={<ProfessorDetails />} /> */}
           <Route path="/student">
-            <Route path="projects" element={<StudentProjects />} />
+            <Route path="addprojects" element={<ProjectForm />} />
           </Route>
           <Route path="/professor">
             <Route path="education" element={<ProfEducationForm />} />

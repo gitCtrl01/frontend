@@ -22,3 +22,16 @@ export async function AppriveGuide(id) {
   );
   return req;
 }
+
+export async function ApplyProject(body) {
+  const req = await Instance.post(
+    "/project/create",
+    { ...body },
+    {
+      headers: {
+        Authorization: `Bearer ${GetItem("token")}`,
+      },
+    }
+  );
+  return req;
+}

@@ -48,6 +48,8 @@ export default function AppProvider({ children }) {
     topic: "",
     yearofPublication: "",
     description: "",
+    domain: "",
+    askedProf: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
